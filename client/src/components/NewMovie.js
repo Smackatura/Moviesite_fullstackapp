@@ -91,7 +91,7 @@ const NewMovie = () => {
         setDirector (e.target.value)
     }
 // in order to render the submit data we have to make our movie object
-    const handleSubmit = (e) => {
+    const submitHandler = (e) => {
         e.preventDefault()
         const movie = {
             title,
@@ -107,7 +107,7 @@ const NewMovie = () => {
         })
         .catch((err)=>{
             console.log(err)
-            // setErrors(err.response.data.error.errors)
+            // setErrors(err)
         })
     }
 // end handle functions
@@ -115,7 +115,7 @@ const NewMovie = () => {
     return (
         <div>
         <h3>Add New Movie</h3>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={submitHandler}>
             <div>
                 <label htmlFor="">Title</label>
                 <input onChange={handleTitle} type="text" value={title}/>

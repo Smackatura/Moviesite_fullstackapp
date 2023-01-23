@@ -9,9 +9,9 @@ app.post('/api/v1/movies/add', MovieController.addMovie )
 // getAll
 app.get('/api/v1/movies/', MovieController.getAll)
 // getOne
-app.get('/api/v1/movies/one/:id', MovieController.getOneMovie)
+app.get('/api/v1/movies/:id', MovieController.getOneMovie)
 // update
 app.put('/api/v1/movies/:id', MovieController.updateMovie)
 // delete
-app.delete('/api/v1/delete/:id',MovieController.deleteMovie)
+app.delete('/api/v1/delete/:id', MovieController.deleteMovie)
 }

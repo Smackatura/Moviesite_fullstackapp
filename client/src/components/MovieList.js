@@ -1,14 +1,15 @@
 import {useState, useEffect } from 'react'
 import axios from 'axios'
 
-const MovieDashboard = () => {
+const MovieList = () => {
 
 	const [movies, setMovies] = useState([])
 
 	useEffect(()=> {
+
 		axios.get('http://localhost:8000/api/v1/movies')
-		.then((movieDashboard)=> {
-		setMovies(movieDashboard.data.movies)
+		.then((MovieList)=> {
+		setMovies(MovieList.data.movies)
 		})
 		.catch((err)=> {
 		console.log(err)
@@ -18,9 +19,11 @@ const MovieDashboard = () => {
 		<div>
 			<h3>Movies List:</h3>
 			<ul>
-				{movies.map((item,idx)=>(
-					<li key={idx}>{item.title}</li>
-				))}
+				{
+					movies.map((item,idx)=>(
+						<li key={idx}>{item.title}</li>
+					))
+				}
 			</ul>
 		</div>
 		// video 2hr 3min mark 
@@ -29,4 +32,4 @@ const MovieDashboard = () => {
   )
 }
 
-export default MovieDashboard
+export default MovieList
